@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+  <head> 
+    <title>Document</title> 
+  </head> 
+  <body> 
+    <script> 
+      
+   let name;
+
+do {
+    name = prompt("Введите имя студента:");
+    if (name === null) {
+        break; // Выход из цикла, если пользователь отменил ввод
+    } else if (!/^[A-Za-zА-Яа-яЁё\s]+$/.test(name) || name.trim() === '') {
+        alert("Ошибка: некорректное имя. Введите только буквы.");
+    }
+} while (!name || !/^[A-Za-zА-Яа-яЁё\s]+$/.test(name) || name.trim() === '');
+
+if (name !== null) {
+    // Действия с корректным именем
+    console.log(`Имя студента: ${name}`);
+}
+
+   let age;
+
+do {
+    age = prompt("Введите возраст студента:");
+    if (age === null) {
+        break; // Выход из цикла, если пользователь отменил ввод
+    } else if (isNaN(age) || age.trim() === '' || age > 100 || age < 0) {
+        alert("Ошибка: некорректно введен возраст. Пожалуйста, введите значение заново.");
+    }
+} while (isNaN(age) || age.trim() === '' || age > 100 || age < 0);
+
+if (age !== null) {
+    // Действия с корректным возрастом
+    console.log(`Возраст студента: ${age}`);
+    
+}
+
+let grade;
+
+do {
+    grade = prompt("Введите средний балл студента:");
+    if (grade === null) {
+        break; // Выход из цикла, если пользователь отменил ввод
+    } else if (isNaN(parseFloat(grade)) || grade.trim() === '' || grade > 10 || grade < 0) {
+        alert("Ошибка: некорректно введен средний балл. Пожалуйста, введите значение заново.");
+    }
+} while (isNaN(parseFloat(grade)) || grade.trim() === '' || grade > 10 || grade < 0);
+
+if (grade !== null) {
+    console.log(`Средний балл студента: ${grade}`);
+}   
+    
+    </script> 
+  </body> 
+</html>

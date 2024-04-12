@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index62</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+    let x = parseInt(prompt("Введите первый множитель x", " не ноль").trim());
+    let y = parseInt(prompt("Введите второй множитель y", " не ноль").trim());
+    if (isNaN(x) || x === ''|| x > 10000|| isNaN(y) || y === ''|| y > 10000) {
+        alert("Это не число или ограничение < 1000  введите числа заново");
+        document.getElementsByName("alert").reload(window.location.reload());
+      }
+    else{
+      const multi = (x, y) => x * y;
+      let string = `The multiplying of ${x} and ${y} is ${multi(x, y)}`;
+      window.alert(string);
+    }
+		</script>
+	</body>
+</html>

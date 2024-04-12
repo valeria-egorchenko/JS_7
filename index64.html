@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index64</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+        // создадим пустой объект mySmart
+        let mySmart = new Object();
+
+        // добавим свойства к объекту mySmart
+        mySmart.model = "POCO X6 Pro";
+        mySmart.year = "2024";
+        mySmart.price = "370$";
+        mySmart.memory = "256ГБ";
+        mySmart.display = "6.67";
+        mySmart.protect = "IP54";
+        
+        // функция вывода свойств на экран методом show
+        mySmart.show = function(){
+          for (let i in mySmart){ 
+            if (typeof mySmart[i] != 'function')
+              document.write (`<li>${i}: ${mySmart[i]}<br></li>`);
+          }
+        }
+              alert(`Модель - ${mySmart["model"]}`);
+              alert(`Дата выхода на рынок - ${mySmart.year}`);
+              alert(`Цена - ${mySmart.price}`);
+              alert(`Встроенная память - ${mySmart.memory}`);
+              alert(`Размер экрана - ${mySmart.display}`);
+              alert(`Пыле- и влагозащита - ${mySmart.protect}`);
+              mySmart.show();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+  <html>
+    <head>
+    <title>Пример 61</title>
+    </head>
+    <body>
+      <script type="text/javascript">
+class Bank {
+    constructor() {
+        this.accounts = [];
+    }
+
+    openAccount(accountHolderName, initialBalance) {
+        const newAccount = {
+            accountHolderName,
+            balance: initialBalance,
+        };
+        this.accounts.push(newAccount);
+        console.log(`Счет для клиента "${accountHolderName}" успешно открыт.`);
+    }
+
+    getAccountInfo() {
+        console.log("Информация о счетах:");
+        this.accounts.forEach((account, index) => {
+            console.log(`Счет ${index + 1}:`);
+            console.log(`Имя клиента: ${account.accountHolderName}`);
+            console.log(`Баланс: ${account.balance}`);
+        });
+    }
+}
+
+// Пример использования:
+const myBank = new Bank();
+myBank.openAccount("Иванов", 1000);
+myBank.openAccount("Петров", 2000);
+myBank.openAccount("Сидоров", 1500);
+
+myBank.getAccountInfo();
+
+</script>
+</body>
+</html>

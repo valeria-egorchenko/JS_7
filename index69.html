@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+  <html>
+    <head>
+    <title>Пример 61</title>
+    </head>
+    <body>
+      <script type="text/javascript">
+// Создаем класс "Студент"
+class Student {
+    constructor(name, age, averageGrade) {
+        this.name = name;
+        this.age = age;
+        this.averageGrade = averageGrade;
+    }
+
+    // Метод для вывода информации о студенте
+    getInfo() {
+        console.log(`Имя: ${this.name}, Возраст: ${this.age}, Средний балл: ${this.averageGrade}`);
+    }
+}
+
+// Создаем несколько студентов
+const student1 = new Student("Анна", 20, 7.5);
+const student2 = new Student("Иван", 22, 8.6);
+const student3 = new Student("Мария", 21, 9.2);
+
+// Создаем массив "группа" и добавляем студентов
+const group = [student1, student2, student3];
+
+// Выводим информацию о каждом студенте из группы
+group.forEach((student, index) => {
+    console.log(`Студент ${index + 1}:`);
+    student.getInfo();
+});
+
+       </script>
+    </body>
+  </html>
