@@ -1,42 +1,60 @@
 <!DOCTYPE HTML>
-  <html>
-    <head>
-    <title>Пример 61</title>
-    </head>
-    <body>
-      <script type="text/javascript">
-class Bank {
-    constructor() {
+<html>
+<head>
+  <title>Пример 61</title>
+</head>
+<body>
+  <script type="text/javascript">
+    class Bank {
+      constructor() {
         this.accounts = [];
-    }
+      }
 
-    openAccount(accountHolderName, initialBalance) {
+      openAccount(accountHolderName, initialBalance) {
         const newAccount = {
-            accountHolderName,
-            balance: initialBalance,
+          accountHolderName,
+          balance: initialBalance,
         };
         this.accounts.push(newAccount);
         console.log(`Счет для клиента "${accountHolderName}" успешно открыт.`);
-    }
+      }
 
-    getAccountInfo() {
+      getAccountInfo() {
         console.log("Информация о счетах:");
         this.accounts.forEach((account, index) => {
-            console.log(`Счет ${index + 1}:`);
-            console.log(`Имя клиента: ${account.accountHolderName}`);
-            console.log(`Баланс: ${account.balance}`);
+          console.log(`Счет ${index + 1}:`);
+          console.log(`Имя клиента: ${account.accountHolderName}`);
+          console.log(`Баланс: ${account.balance}`);
         });
+      }
     }
-}
 
-// Пример использования:
-const myBank = new Bank();
-myBank.openAccount("Иванов", 1000);
-myBank.openAccount("Петров", 2000);
-myBank.openAccount("Сидоров", 1500);
+    const myBank = new Bank();
 
-myBank.getAccountInfo();
+    let accountHolderName;
+    let initialBalance;
 
-</script>
+    while (true) {
+      accountHolderName = prompt("Введите имя клиента:");
+      if (accountHolderName === null) {
+        break; // Выход из цикла, если пользователь отменил ввод
+      } else if (!/^[A-Za-zА-Яа-яЁё\s]+$/.test(accountHolderName) || accountHolderName.trim() === '') {
+        alert("Ошибка: некорректное имя. Введите только буквы.");
+        continue;
+      }
+
+      initialBalance = prompt("Введите начальный баланс счета:");
+      if (initialBalance === null) {
+        break; // Выход из цикла, если пользователь отменил ввод
+      } else if (isNaN(parseFloat(initialBalance)) || initialBalance.trim() === '' || initialBalance < 0) {
+        alert("Ошибка: некорректно введен баланс. Пожалуйста, введите значение заново.");
+        continue;
+      }
+
+      myBank.openAccount(accountHolderName, parseFloat(initialBalance));
+    }
+
+    myBank.getAccountInfo();
+  </script>
 </body>
 </html>
